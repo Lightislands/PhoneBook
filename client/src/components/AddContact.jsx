@@ -13,6 +13,7 @@ const AddContacts = () => {
 
   const sumbitForm = (event) => { // TODO: Add validation
     event.preventDefault()
+    console.log("--contact--", contact)
     addContact(contact);
   }
 
