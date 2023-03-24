@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { addContact } from '../services/paramsAPI';
+import { TextField, Button } from '@mui/material';
 
 const AddContacts = () => {
   const [contact, setContact] = useState()
@@ -20,20 +21,23 @@ const AddContacts = () => {
   return (
     <div>
       <h2>Add Contact:</h2>
-      <form onSubmit={sumbitForm}>
-        <table>
-          <tbody>
-            <tr><td>Name:</td><td>
-              <input type="text" name="userName" value={contact?.userName} onChange={(e) => onChangeHandler(e.target)} />
-              </td></tr>
-            <tr><td>Phone:</td><td>
-              <input type="text" name="phoneNumber" value={contact?.phoneNumber} onChange={(e) => onChangeHandler(e.target)} />
-            </td></tr>
-            <tr><td>
-              <button type="submit">Submit</button>
-            </td></tr>
-          </tbody>
-        </table>
+      <form onSubmit={sumbitForm} className='form-wrap'>
+        <TextField
+          name="userName"
+          id="standard-basic"
+          label="Name"
+          variant="standard"
+          onChange={(e) => onChangeHandler(e.target)}
+        />
+        <TextField
+          name="phoneNumber"
+          id="standard-basic"
+          label="Phone"
+          variant="standard"
+          onChange={(e) => onChangeHandler(e.target)}
+          className='phone-input'
+        />
+        <Button type="submit" variant="outlined">Add +</Button>
       </form>
     </div>
   );
